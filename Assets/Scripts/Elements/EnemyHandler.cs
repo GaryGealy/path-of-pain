@@ -80,11 +80,11 @@ public class EnemyHandler : MonoBehaviour
 	//The Start function is called after all Awake functions on all script instances have been called. 
 	void Start() 
 	{
-		activeEventManager = GameObject.Find("EventManager");
+	/* 	activeEventManager = GameObject.Find("EventManager");
 		if ( !activeEventManager ) 
 		{ 
 			EventManager.DebugLog("Start()", "unable to find 'EventManager' reporting object: " + transform.name);
-		}
+		} */
 		
 		activeAppManager = GameObject.Find("AppManager");
 		if ( !activeAppManager ) 
@@ -92,13 +92,7 @@ public class EnemyHandler : MonoBehaviour
 			EventManager.DebugLog("Start()", "unable to find 'AppManager' reporting object: " + transform.name);
 		}
 
-		activeEnemyManager = GameObject.Find("EnemyManager");
-		if ( !activeEventManager ) 
-		{ 
-			EventManager.DebugLog("Start()", "unable to find 'EnemyManager' reporting object: " + transform.name);
-		}
-
-		spawnOffset = activeEnemyManager.GetComponent<EnemyManager>().GetSpawnOffset();
+		//spawnOffset = activeEnemyManager.GetComponent<EnemyManager>().GetSpawnOffset();
 	}
 	
 	// Use Awake to set up references between scripts, and use Start to pass any information back and forth.

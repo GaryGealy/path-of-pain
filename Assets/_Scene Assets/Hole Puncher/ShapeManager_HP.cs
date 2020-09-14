@@ -85,9 +85,6 @@ public class ShapeManager_HP : MonoBehaviour
 		{ 
 			EventManager.DebugLog("Start()", "unable to find 'AppManager' reporting object: " + transform.name);
 		}
-
-		CreateSheetToPunch();
-		
 	}
 	
 	// Use Awake to set up references between scripts, and use Start to pass any information back and forth.

@@ -77,11 +77,11 @@ public class ColliderHelper : MonoBehaviour
 	//The Start function is called after all Awake functions on all script instances have been called. 
 	void Start() 
 	{
-		activeEventManager = GameObject.Find("EventManager");
+/* 		activeEventManager = GameObject.Find("EventManager");
 		if ( !activeEventManager ) 
 		{ 
 			EventManager.DebugLog("Start()", "unable to find 'EventManager' reporting object: " + transform.name);
-		}
+		} */
 		
 		activeAppManager = GameObject.Find("AppManager");
 		if ( !activeAppManager ) 
@@ -90,7 +90,7 @@ public class ColliderHelper : MonoBehaviour
 		}
 
 		activeEnemyManager = GameObject.Find("EnemyManager");
-		if ( !activeEventManager ) 
+		if ( !activeEnemyManager ) 
 		{ 
 			EventManager.DebugLog("Start()", "unable to find 'EnemyManager' reporting object: " + transform.name);
 		}
@@ -118,8 +118,10 @@ public class ColliderHelper : MonoBehaviour
 		}
 	}
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter(Collision other)
     {
+		EventManager.DebugLog("OnCollisionEnter()", other.transform.name);
+
 		if (other.gameObject.tag == "Player") 
 		{	
 
@@ -140,15 +142,15 @@ public class ColliderHelper : MonoBehaviour
 		
     }
 
-	void OnTriggerEnter2D (Collider2D other)
+	void OnTriggerEnter(Collider other)
 	{
-		//EventManager.DebugLog("OnTriggerEnter2D()", other.transform.name);
+		EventManager.DebugLog("OnTriggerEnter()", other.transform.name);
 		
-		activeEnemyManager.GetComponent<EnemyManager>().Explode(other.transform.position);
+		/* activeEnemyManager.GetComponent<EnemyManager>().Explode(other.transform.position);
 
 		activeAudioManager.GetComponent<AudioManager>().EnemyHit();
 		
-		Destroy(transform.parent.gameObject);
+		Destroy(transform.parent.gameObject); */
 	}
 
 #endregion
